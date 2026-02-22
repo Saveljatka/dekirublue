@@ -1,7 +1,10 @@
 import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
 
-export default defineConfig({
-  base: "/dekirublue/",
-  plugins: [react()],
+export default defineConfig(async () => {
+  const react = (await import("@vitejs/plugin-react")).default
+
+  return {
+    base: "/dekirublue/",
+    plugins: [react()],
+  }
 })
